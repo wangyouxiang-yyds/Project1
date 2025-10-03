@@ -15,7 +15,7 @@ def data_preprocessing(data_file):
     # 刪除不必要的欄位
     data = data.drop(columns=["ID", "fullAddress", "postcode"])
 
-    data["price"] = np.log1p(data["price"])
+    # data["price"] = np.log1p(data["price"])
 
     return data
 
