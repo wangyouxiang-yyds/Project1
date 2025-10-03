@@ -26,7 +26,7 @@ def train_model(X_train, y_train, X_val, y_val, input_dim):
 
     history = model.fit(
         X_train, y_train, validation_data=(X_val, y_val),
-        epochs=300, 
+        epochs=100, 
         batch_size=64,
         callbacks=[early_stop]
     )

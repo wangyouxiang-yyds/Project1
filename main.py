@@ -1,7 +1,7 @@
 from data_cleaning_preprocess import data_preprocessing
 from feature_engineer import feature_engineer
 from build_model import train_model, evaluate_model
-
+from predict import predict_and_save
 if __name__ == "__main__":
     # 資料前處理
     data_file = "train.csv"
@@ -21,6 +21,14 @@ if __name__ == "__main__":
                                  input_dim=X_train.shape[1])
 
     evaluate_model(model, X_test, y_test)
+    preprocessor = data["preprocessor"]
+    predict_and_save(
+    model=model,
+    preprocessor=preprocessor,   # 你訓練時用的同一個 preprocessor
+    test_csv="test.csv",
+    out_test_with_price="test_with_price.csv",
+    out_submission="submission.csv",
+    use_log_target=False         # 你現在沒有用 log 目標，保持 False
+)
 
-
-
+    
